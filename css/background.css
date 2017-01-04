@@ -1,0 +1,20 @@
+.queue-btn{
+	background-color:#CCC;
+	border:1px solid #BBB;
+	position:absolute;
+	float:left;
+	bottom:5px;
+	right:20px;
+	height:15px;
+	width:15px;
+	line-height:15px;
+	text-align:center;
+	font-size:1em;
+	font-weight:bold;
+	color:#FFF;
+	z-index:100;
+	cursor:pointer;
+}
+.queue-btn:hover {
+	background-color:#AAA;
+}

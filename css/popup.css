@@ -1,0 +1,162 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+.ytq-title{
+	display:block;
+	text-align:left;
+	width:475px;
+	font-size:2em;
+	font-weight:bold;
+	font-family:'Dosis',sans-serif;
+	margin-bottom:15px;
+	padding-left:10px;
+}
+.remove-all-btn{
+	position:fixed;
+	display:block;
+	top:1em;
+	right:10px;
+	left:300;
+	width:25px;
+	height:25px;
+	line-height:25px;
+	font-size:1.1em;
+	font-weight:bold;
+	text-align:center;
+	background-color: #FB6969;
+	color:#FFF;
+	cursor:pointer;
+}
+.up-next-label{
+	display:block;
+	width:100%;
+	height:40px;
+	line-height:40px;
+	font-size:1.7em;
+	text-align:left;
+	padding-left:10px;
+}
+.no-videos{
+	display:block;
+	position:absolute;
+	padding:10px;
+	margin:0;
+	width:100%;
+	height:400px;
+	line-height:400px;
+	font-size:2.3em;
+	font-weight:bold;
+	font-family:'Dosis',sans-serif;
+	text-align:center;
+	z-index:100;
+}
+.vid-list-container{
+	height:450px;
+	width:100%;
+	padding:0;
+	margin:0;
+	margin-left:-5px;
+	overflow-y:scroll;
+	background-color:#FFF;
+}
+.vid-list-container::-webkit-scrollbar{
+	display:none;
+}
+.vid-list{
+	list-style-type:none;
+	padding:0;
+	margin:0 auto;
+}
+.vid-list-item-inner{
+	width:450px;
+	height:45px;
+	margin:0 auto;
+	margin-bottom:10px;
+	display:table;
+	padding:0;
+	background-color:#FFF;
+}
+.action-left{
+	height:45px;
+	width:30px;
+	display:table-cell;
+	padding:0;
+	margin-right:5px;
+	cursor:pointer;
+}
+.action-left-inner{
+	width:30px;
+	position:relative;
+	bottom:10px;
+	text-align:center;
+	font-size:1.4em;
+	font-weight:bold;
+	margin-right:5px;
+}
+.action-left-over{
+	color:red;
+}
+.thumb-container{
+	width:150px;
+	height:45px;
+	padding:0;
+	float:left;
+	display:table-cell;
+}
+.thumbnail{
+	width:150px;
+}
+.thumb-container:hover+.video-desc>.desc-anchor>.video-title{
+	color:#0000EE;
+}
+.desc-anchor{
+	text-decoration: none;
+	color:#000;
+}
+.desc-anchor:hover>.video-title{
+	color:#0000EE;
+}
+.video-desc{
+	display:table-cell;
+	float:left;
+	height:45px;
+	width:225px;
+	margin-top:10px;
+	margin-left:8px;
+	text-align:left;
+}
+.video-info{
+	display:block;
+	width:150px;
+}
+.video-title{
+	font-weight:bold;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	font-size:1.5em;
+}
+.video-publisher{
+	font-size:1em;
+}
+.video-views{
+	font-size:.9em;
+}
+.action-right{
+	height:45px;
+	width:30px;
+	display:table-cell;
+	padding:0;
+}
+.action-right-inner{
+	width:30px;
+	position:relative;
+	bottom:10px;
+	text-align:center;
+	font-size:1.6em;
+	font-weight:bold;
+	cursor:pointer;
+}
+.action-right-inner-over{
+	color:#EEE;
+}
