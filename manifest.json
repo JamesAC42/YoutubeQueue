@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "YoutubeQueue",
   "description": "A persistant, auto-playing queue for streaming Youtube videos.",
-  "version": "1.0",
+  "version": "1.2",
   "permissions": [
     "activeTab",
     "tabs",

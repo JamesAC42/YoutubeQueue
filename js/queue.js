@@ -4,13 +4,18 @@ ytqueue.controller("YtQueue",['$scope', function($scope){
 	var queue = this;
 
 	queue.videos = chrome.storage.sync.get(['video_queue'], function(items){
-		queue.videos = items.video_queue;
-		if(queue.videos.length > 0){
-			$('.no-videos-container').css("display","none");
+		if(items.video_queue === undefined){
+			chrome.storage.sync.set({'video_queue':[]});
+			return;
 		}else{
-			$('.no-videos-container').css("display","default");
+			queue.videos = items.video_queue;
+			if(queue.videos.length > 0){
+				$('.no-videos-container').css("display","none");
+			}else{
+				$('.no-videos-container').css("display","default");
+			}
+			$scope.$apply();
 		}
-		$scope.$apply();
 	});
 	
 	queue.removeVideo = function(video){
