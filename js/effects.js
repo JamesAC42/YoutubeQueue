@@ -21,6 +21,7 @@ $(document).ready(function(){
 		axis: "y",
 		handle:".action-right-inner",
 		start: function(event,ui){
+			ui.item.addClass('vid-list-dragged',1000, "easeOutBounce");
 			old_spot = $('#' + ui.item.attr('id')).index();
 		},
 		update: function(event, ui){
