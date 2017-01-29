@@ -1,22 +1,68 @@
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+body::-webkit-scrollbar{
+	display:none;
+}
+.popup-header{
+	width:565px;
+	height:96px;
+	margin:-18px;
+	margin-bottom:10px;
+	background-color:#C51109;
+	padding-top:20px;
+}
+.header-title{
+	height:40px;
+	width:565px;
+	text-align:left;
+	padding-left:28px;
+	margin:0;
 }
 .ytq-title{
-	display:block;
-	text-align:left;
-	width:475px;
-	font-size:2em;
+	font-size:1.7em;
+	color:white;
+	font-family:'Roboto',sans-serif;
+}
+.navbar{
+	height:55px;
+	width:565px;
+	padding:0;
+	margin:0;
+}
+.menu-item{
+	height:50px;
+	width:282.5px;
+	line-height:45px;
+	margin:0;
+	float:left;
+	text-align:center;
+	font-size:18px;
 	font-weight:bold;
-	font-family:'Dosis',sans-serif;
-	margin-bottom:15px;
-	padding-left:10px;
+	color:#94D8FF;
+	background-color:#AC0B04;
+	border-bottom:7px solid #94D8FF;
+	transition: all .2s ease-in-out;
+	user-select:none;
+}
+.menu-item:hover{
+	height:45px;
+	border-width:12px;
+	background-color: #FF817C;
+}
+.menu-item-active{
+	height:45px;
+	border-width:12px;
+	background-color:#C51109;
+}
+.menu-item-symbol{
+	transform: rotate(45deg);
 }
 .remove-all-btn{
-	position:fixed;
+	position:absolute;
 	display:block;
-	top:1em;
-	right:10px;
-	left:300;
+	top:.7em;
+	right:0px;
 	width:25px;
 	height:25px;
 	line-height:25px;
@@ -29,12 +75,38 @@ body{
 }
 .up-next-label{
 	display:block;
-	width:100%;
+	width:520px;
 	height:40px;
 	line-height:40px;
-	font-size:1.7em;
+	font-size:1.6em;
 	text-align:left;
 	padding-left:10px;
+}
+.separator{
+	width:100%;
+	height:0;
+	border:1px solid #CCCCCC;
+}
+.window-container{
+	width:540px;
+	height:450px;
+	margin-top:10px;
+	overflow-y:scroll;
+}
+.window-container::-webkit-scrollbar{
+	display:none;
+}
+.window{
+	position:absolute;
+}
+.queue-window{
+	z-index:1;
+}
+.search-window{
+	z-index:1000;
+}
+.window-inactive{
+	transform: translateX(-600px);
 }
 .no-videos{
 	display:block;
@@ -46,7 +118,7 @@ body{
 	line-height:400px;
 	font-size:2.3em;
 	font-weight:bold;
-	font-family:'Dosis',sans-serif;
+	font-family:'Roboto',sans-serif;
 	text-align:center;
 	z-index:100;
 }
@@ -66,6 +138,10 @@ body{
 	list-style-type:none;
 	padding:0;
 	margin:0 auto;
+}
+.vid-list-item{
+	margin-bottom:10px;
+	margin-top:30px;
 }
 .vid-list-item-inner{
 	width:450px;
@@ -117,11 +193,9 @@ body{
 	color:#0000EE;
 }
 .video-desc{
-	display:table-cell;
 	float:left;
 	height:45px;
 	width:225px;
-	margin-top:10px;
 	margin-left:8px;
 	text-align:left;
 }
@@ -130,11 +204,14 @@ body{
 	width:150px;
 }
 .video-title{
+	display:block;
 	font-weight:bold;
-	white-space: nowrap;
 	text-overflow: ellipsis;
+	word-wrap: break-word;
 	overflow:hidden;
-	font-size:1.5em;
+	line-height: 1.3em;
+	max-height: 2.6em;
+	font-size:1.3em;
 }
 .video-publisher{
 	font-size:1em;

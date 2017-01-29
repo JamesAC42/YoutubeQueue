@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>YoutubeQueue</title>
 	<link href="css/popup.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 	<script src="js/angular.min.js"></script>
 	<script src="js/jquery-3.1.1.min.js"></script>
@@ -13,39 +13,58 @@
 	<script src="js/effects.js"></script>
 </head>
 <body>
-	<span class="ytq-title">Youtube&trade; Queue</span>
-	<span class="up-next-label">Up Next...</span>
-	<div id="vid-container" class="vid-list-container" ng-controller="YtQueue as queue">
-		<div class="no-videos-container"><span class="no-videos">No Videos</span></div>
-		<span class="remove-all-btn" ng-click="removeAll()">X</span>
-		<ul class="vid-list">
-			<li id="vid-list-item-{{$index}}" class="vid-list-item" ng-repeat="video in queue.videos">
-				<div class="vid-list-item-inner">
-					<div class="action-left" ng-click="queue.removeVideo($index)">
-						<div class="action-left-inner">
-							{{$index + 1}}
+	<div class="popup-header">
+		<div class="header-title">
+			<span class="ytq-title">Youtube&trade; Queue</span>
+		</div>
+		<div class="navbar">
+			<div class="menu-item menu-item-active">
+				<div class="hamburger">&#9776;</div>
+			</div>
+			<div class="menu-item">
+				<span class="menu-item-symbol">&#9906;</span>
+			</div>
+		</div>
+	</div>
+	<div class="window-container">
+		<div class="window queue-window">
+			<span class="up-next-label">Up Next...</span>
+			<div class="separator"></div>
+			<div id="vid-container" class="vid-list-container" ng-controller="YtQueue as queue">
+				<div class="no-videos-container"><span class="no-videos">No Videos</span></div>
+				<span class="remove-all-btn" ng-click="removeAll()">X</span>
+				<ul class="vid-list">
+					<li id="vid-list-item-{{$index}}" class="vid-list-item" ng-repeat="video in queue.videos">
+						<div class="vid-list-item-inner">
+							<div class="action-left" ng-click="queue.removeVideo($index)">
+								<div class="action-left-inner">
+									{{$index + 1}}
+								</div>
+							</div>
+							<div class="thumb-container">
+								<a ng-href="http://www.youtube.com{{video.url}}" class="thumbnail-anchor">
+									<img class="thumbnail" ng-src="{{video.thumbnail}}" alt="Thumbnail">
+								</a>
+							</div>
+							<div class="video-desc">
+								<a class="desc-anchor" ng-href="http://www.youtube.com{{video.url}}">
+									<span class="video-title video-info" title="{{video.title}}">{{video.title}}</span>
+									<span class="video-publisher video-info">{{video.publisher}}</span>
+									<span class="video-views video-info">{{video.views}}</span>
+								</a>
+							</div>
+							<div class="action-right" ng-click="addVideo()">
+								<div class="action-right-inner">
+									&#9776;
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="thumb-container">
-						<a ng-href="http://www.youtube.com{{video.url}}" class="thumbnail-anchor">
-							<img class="thumbnail" ng-src="{{video.thumbnail}}" alt="Thumbnail">
-						</a>
-					</div>
-					<div class="video-desc">
-						<a class="desc-anchor" ng-href="http://www.youtube.com{{video.url}}">
-							<span class="video-title video-info" title="{{video.title}}">{{video.title}}</span>
-							<span class="video-publisher video-info">{{video.publisher}}</span>
-							<span class="video-views video-info">{{video.views}}</span>
-						</a>
-					</div>
-					<div class="action-right" ng-click="addVideo()">
-						<div class="action-right-inner">
-							&#9776;
-						</div>
-					</div>
-				</div>
-			</li>
-		</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="window search-window window-inactive">
+		</div>
 	</div>
 </body>
 </html>
