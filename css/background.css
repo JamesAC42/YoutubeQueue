@@ -1,5 +1,5 @@
 .queue-btn{
-	background-color:#CCC;
+	background-color:#C51109;
 	border:1px solid #BBB;
 	position:absolute;
 	float:left;
@@ -16,5 +16,68 @@
 	cursor:pointer;
 }
 .queue-btn:hover {
-	background-color:#AAA;
+	background-color:#FF817C;
+}
+.ytqueue-options{
+	position:absolute;
+	z-index:1000;
+	float:right;
+	top:15px;
+	right:220px;
+	height:50px;
+	width:100px;
+}
+.ytqueue-options-inner{
+	width:33px;
+	float:left;
+	margin:0;
+	padding:0;
+	height:50px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+	color:#8A8A8A;
+	line-height:100%;
+	cursor:pointer;
+}
+.ytqueue-options-inner:hover{
+	color:#000;
+}
+.ytqueue-skip{
+	line-height:40px;
+}
+.ytqueue-toggle-btn-outer{
+	height:34px;
+	width:15px;
+	margin:0 auto;
+	top:3px;
+	background-color:#1955FF;
+	border:2px solid #1955FF;
+	padding:0;
+	border-radius:15px;
+}
+.ytqueue-toggle-btn-inner{
+	position:absolute;
+	margin:0;
+	top:1px;
+	bottom:16px;
+	width:15px;
+	height:15px;
+	background-color:#FFF;
+	border-bottom: 1px solid #8A8A8A;
+	border-top:none;
+	border-radius:15px;
+	transition: all .1s ease-in-out;
+}
+.ytqueue-toggle-btn-outer-disabled{
+	background-color:#C0C0C0;
+	border: 2px solid #C0C0C0;
+}
+.ytqueue-toggle-btn-inner-disabled{
+	transform: translate3d(0px, 19px, 0px);
+	border-bottom:none;
+	border-top:1px solid #8A8A8A;
+}
+.ytqueue-toggle-btn-outer:hover .ytqueue-toggle-btn-inner{
+	background-color:#DEDEDE;
 }
