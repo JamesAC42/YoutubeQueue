@@ -7,4 +7,7 @@
 - Delete, reorder, and reset the queue manually.
 - Persistent between tabs and windows.
 
+Coming soon: Search for videos within the popup and add them to queue from there
+
 [Add to Chrome](https://chrome.google.com/webstore/detail/youtubequeue/amkohmdlfkdahaaacohifokebhmnjkcd)
+(This is not the most current version)
