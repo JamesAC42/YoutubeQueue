@@ -1,6 +1,7 @@
 ## Youtube Queue
 
 ####Chrome extension for creating a persistent queue of videos when streaming Youtube.
+####Uses AngularJS and Jquery
 
 - Add videos to queue from recommended sidebar.
 - Videos play automatically.
