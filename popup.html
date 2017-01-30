@@ -28,12 +28,44 @@
 	</div>
 	<div class="window-container">
 		<div class="window queue-window">
-			<span class="up-next-label">Up Next...</span>
-			<div class="separator"></div>
+			<h3 id="history-header" class="section-label">History</h3>
+			<div id="history-container" class="vid-list-container" ng-controller="YtHistory as history">
+				<div id="no-history" class="no-videos-container"><span class="no-videos">No Videos</span></div>
+				<span id="remove-history" class="remove-all-btn" ng-click="removeAll()">X</span>
+				<ul id="history-list" class="vid-list">
+					<li id="queue-list-item-{{$index}}" class="vid-list-item" ng-repeat="video in history.videos">
+						<div class="vid-list-item-inner">
+							<div class="action-left" ng-click="history.removeVideo($index)">
+								<div class="action-left-inner">
+									{{$index + 1}}
+								</div>
+							</div>
+							<div class="thumb-container">
+								<a ng-href="http://www.youtube.com{{video.url}}" class="thumbnail-anchor">
+									<img class="thumbnail" ng-src="{{video.thumbnail}}" alt="Thumbnail">
+								</a>
+							</div>
+							<div class="video-desc">
+								<a class="desc-anchor" ng-href="http://www.youtube.com{{video.url}}">
+									<span class="video-title video-info" title="{{video.title}}">{{video.title}}</span>
+									<span class="video-publisher video-info">{{video.publisher}}</span>
+									<span class="video-views video-info">{{video.views}}</span>
+								</a>
+							</div>
+							<div class="action-right">
+								<div class="action-right-inner">
+									&#9776;
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<h3 id="up-next-header" class="section-label active-accord">Up Next...</h3>
 			<div id="vid-container" class="vid-list-container" ng-controller="YtQueue as queue">
-				<div class="no-videos-container"><span class="no-videos">No Videos</span></div>
-				<span class="remove-all-btn" ng-click="removeAll()">X</span>
-				<ul class="vid-list">
+				<div id="no-queue" class="no-videos-container"><span class="no-videos">No Videos</span></div>
+				<span id="remove-queue" class="remove-all-btn" ng-click="removeAll()">X</span>
+				<ul id="queue-list" class="vid-list">
 					<li id="vid-list-item-{{$index}}" class="vid-list-item" ng-repeat="video in queue.videos">
 						<div class="vid-list-item-inner">
 							<div class="action-left" ng-click="queue.removeVideo($index)">

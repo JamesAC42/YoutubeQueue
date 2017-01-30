@@ -1,9 +1,10 @@
 //Initialize variables
 var moused;
-var old_spot;
+var old_spot_queue;
+var old_spot_history;
 
 $(document).ready(function(){
-	
+
 	$(".action-left").mouseenter(function(){
 		var inner_elem = $(this).children('.action-left-inner');
 		moused = inner_elem.text();
@@ -23,15 +24,44 @@ $(document).ready(function(){
 		$(this).children(".action-right-inner-over").removeClass("action-right-inner-over");
 	});
 
-	$(".vid-list").sortable({
+	$("#queue-list").sortable({
 		axis: "y",
 		handle:".action-right-inner",
 		start: function(event,ui){
 			ui.item.addClass('vid-list-dragged',1000, "easeOutBounce");
-			old_spot = $('#' + ui.item.attr('id')).index();
+			old_spot_queue = $('#' + ui.item.attr('id')).index();
 		},
 		update: function(event, ui){
-			angular.element($('#vid-container')).scope().reSort(old_spot, ui.item.attr('id'));
+			angular.element($('#vid-container')).scope().reSort(old_spot_queue, ui.item.attr('id'));
+		}
+	});
+	$("#history-list").sortable({
+		axis: "y",
+		handle:".action-right-inner",
+		start: function(event,ui){
+			ui.item.addClass('vid-list-dragged',1000, "easeOutBounce");
+			old_spot_history = $('#' + ui.item.attr('id')).index();
+		},
+		update: function(event, ui){
+			angular.element($('#history-container')).scope().reSort(old_spot_history, ui.item.attr('id'));
+		}
+	});
+
+	$("#history-container").slideUp();
+	$("#history-header").click(function(){
+		$("#history-container").slideToggle();
+		$("#history-container, #vid-container").toggleClass("active-accord");
+		if($("#history-container").hasClass("active-accord")){
+			$("#remove-queue").css("display","none");
+		}else{
+			$("#remove-queue").css("display","default");
+		}
+	})
+
+	$("#up-next-header, #history-header").click(function(){
+		if($(this).hasClass('active-accord')){
+			$(".inactive-accord").slideDown().removeClass("inactive-accord").addClass("active-accord");
+			$(this).removeClass("active-accord").addClass("inactive-accord");
 		}
 	});
 

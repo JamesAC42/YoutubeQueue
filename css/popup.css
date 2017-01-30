@@ -61,7 +61,7 @@ body::-webkit-scrollbar{
 .remove-all-btn{
 	position:absolute;
 	display:block;
-	top:.7em;
+	top:1.2em;
 	right:0px;
 	width:25px;
 	height:25px;
@@ -73,7 +73,7 @@ body::-webkit-scrollbar{
 	color:#FFF;
 	cursor:pointer;
 }
-.up-next-label{
+.section-label{
 	display:block;
 	width:520px;
 	height:40px;
@@ -81,6 +81,11 @@ body::-webkit-scrollbar{
 	font-size:1.6em;
 	text-align:left;
 	padding-left:10px;
+	border-bottom:1px solid #CCCCCC;
+	outline:none;
+	margin-bottom:0;
+	margin-top:10px;
+	cursor:pointer;
 }
 .separator{
 	width:100%;
@@ -137,15 +142,16 @@ body::-webkit-scrollbar{
 .vid-list{
 	list-style-type:none;
 	padding:0;
+	padding-bottom:130px;
 	margin:0 auto;
 }
 .vid-list-item{
 	margin-bottom:10px;
-	margin-top:30px;
+	margin-top:20px;
 }
 .vid-list-item-inner{
 	width:450px;
-	height:45px;
+	height:80px;
 	margin:0 auto;
 	margin-bottom:10px;
 	display:table;
@@ -180,7 +186,7 @@ body::-webkit-scrollbar{
 	display:table-cell;
 }
 .thumbnail{
-	width:150px;
+	height:80px;
 }
 .thumb-container:hover+.video-desc>.desc-anchor>.video-title{
 	color:#0000EE;

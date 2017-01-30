@@ -1,4 +1,65 @@
 var ytqueue = angular.module("ytQueue",[]);
+
+ytqueue.controller("YtHistory", ['$scope', function($scope){
+	var history = this;
+
+	history.videos = chrome.storage.sync.get(['video_history'],function(items){
+		if(items.video_history === undefined){
+			chrome.storage.sync.set({'video_history':[]});
+		}else{
+			history.videos = items.video_history;
+			if(history.videos.length > 0){
+				$("#no-history").css("display","none");
+			}else{
+				$("#no-history").css("display","default");
+			}
+			$scope.$apply();
+		}
+	});
+
+	history.removeVideo = function(video){
+		var old_videos = history.videos;
+		history.videos = [];
+		for(var i = 0; i < old_videos.length; i++){
+			if(i != video){
+				history.videos.push(old_videos[i]);
+			}
+		}
+		chrome.storage.sync.set({'video_history':history.videos})
+	}
+
+	$scope.reSort = function(old, video){
+		var place = $('#' + video).index();
+		var old_video = history.videos[old];
+		var old_videos = history.videos;
+		history.videos = [];
+		for(var i = 0; i < history.length; i++){
+			if(i != old){
+				history.videos.push(old_videos[i]);
+			}
+		}
+		history.videos.splice(place, 0, old_video);
+		chrome.storage.sync.set({'video_history':queue.videos})
+	    $scope.$apply(function() {
+	        scope.controllerMethod(val);
+	    })
+	}
+
+	$scope.removeAll = function(){
+		if(history.videos.length > 0){
+			if(confirm("Are you sure you want to delete all history?")){
+				history.videos = [];
+				chrome.storage.sync.set({'video_history':history.videos})
+				$('#no-history').css("display","default");
+				$scope.$apply(function() {
+			        scope.controllerMethod(val);
+			    })
+			}
+		}
+	}
+
+}]);
+
 ytqueue.controller("YtQueue",['$scope', function($scope){
 
 	var queue = this;
@@ -10,9 +71,9 @@ ytqueue.controller("YtQueue",['$scope', function($scope){
 		}else{
 			queue.videos = items.video_queue;
 			if(queue.videos.length > 0){
-				$('.no-videos-container').css("display","none");
+				$('#no-queue').css("display","none");
 			}else{
-				$('.no-videos-container').css("display","default");
+				$('#no-queue').css("display","default");
 			}
 			$scope.$apply();
 		}
@@ -48,16 +109,14 @@ ytqueue.controller("YtQueue",['$scope', function($scope){
 
 	$scope.removeAll = function(){
 		if(queue.videos.length > 0){
-			if(confirm("Are you sure?")){
+			if(confirm("Are you sure you want to clear the queue?")){
 				queue.videos = [];
 				chrome.storage.sync.set({'video_queue':queue.videos})
-				$('.no-videos-container').css("display","default");
+				$('#no-queue').css("display","default");
 				$scope.$apply(function() {
 			        scope.controllerMethod(val);
 			    })
 			}
-		}else{
-			alert("You have no videos in the queue.");
 		}
 	}
 
